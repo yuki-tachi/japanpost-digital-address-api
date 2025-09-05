@@ -1,0 +1,30 @@
+body {
+  background: #fafafa;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+label {
+  display: block;
+  margin-bottom: 1em;
+}
+label span {
+  display: block;
+  margin-bottom: 0.3em;
+  font-weight: bold;
+}
+input,
+select {
+  width: 100%;
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+pre {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1em;
+  background: #ffffff;
+}
