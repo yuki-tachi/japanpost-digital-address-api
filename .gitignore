@@ -1,0 +1,32 @@
+# Django/Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.pot
+*.log
+*.env
+.env.*
+.DS_Store
+.vscode/
+.venv/
+/static/
+/media/
+# IDE/editor
+.idea/
+*.swp
+*.swo
+# OS
+Thumbs.db
+# Test/coverage
+htmlcov/
+.coverage
+.tox/
+.pytest_cache/
+# Node/npm
+node_modules/
+# Misc
+*.bak
+*.tmp

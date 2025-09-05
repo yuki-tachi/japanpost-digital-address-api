@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>郵便番号・デジタルアドレス for Biz</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <form method="post">
+      <h2>郵便番号・デジタルアドレス for Biz</h2>
+      <!-- {% csrf_token %} -->
+      <!-- <ul>
+        <li>デジタルアドレスは大文字小文字を区別する</li>
+      </ul> -->
+      <label>
+        <span>郵便番号・デジタルアドレス</span>
+        <input
+          hx-get="/searchcode"
+          hx-trigger="input changed delay:500ms"
+          hx-target="#content"
+          placeholder="例: 1000001, QN6GQX1, A7E2FK2"
+          type="text"
+          name="search_code"
+          autocomplete="shipping postal-code"
+        />
+      </label>
+      <!--       
+      <button type="submit" name="action" value="searchcode" id="search-btn">
+        送信
+      </button> -->
+
+      <section id="content"></section>
+
+      <script>
+        document.body.addEventListener("htmx:afterSwap", (event) => {
+          if (event.detail.target.id === "content") {
+            const block = document.querySelector("#content pre");
+            if (block) {
+              hljs.highlightBlock(block);
+            }
+          }
+        });
+      </script>
+      <!-- <label>
+        <span>都道府県</span>
+        <select name="prefecture" autocomplete="shipping address-level1">
+          <option value="北海道">北海道</option>
+          ...
+        </select>
+      </label>
+
+      <label>
+        <span>市区町村</span>
+        <input type="text" name="city" autocomplete="shipping address-level2" />
+      </label>
+      <label>
+        <span>町名・番地</span>
+        <input
+          type="text"
+          name="address1"
+          autocomplete="shipping address-line1"
+        />
+      </label>
+      <label>
+        <span>建物名等</span>
+        <input
+          type="text"
+          name="address2"
+          autocomplete="shipping address-line2"
+        />
+      </label>
+      <button ttype="submit" name="action" value="addresszip">送信</button> -->
+    </form>
+
+    <!-- <script>
+    document.getElementById('search-btn').addEventListener('click', function() {
+        const zip = document.getElementById('id_postal_code').value.replace(/-/g, '');
+        if (!zip.match(/^\d{7}$/)) {
+            alert('7桁の郵便番号を入力してください');
+            return;
+        }
+        fetch('https://zipcloud.ibsnet.co.jp/api/search?zipcode=' + zip)
+            .then(response => response.json())
+            .then(data => {
+                if (data.results && data.results.length > 0) {
+                    document.getElementById('id_prefecture').value = data.results[0].address1;
+                } else {
+                    alert('該当する住所が見つかりません');
+                }
+            })
+            .catch(() => alert('API通信エラー'));
+    });
+    </script> -->
+  </body>
+</html>
