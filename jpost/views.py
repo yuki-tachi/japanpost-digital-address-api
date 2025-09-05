@@ -9,10 +9,15 @@ def search_view(request):
     # クエリパラメータからzipcodeを取得（例: /searchcode?zipcode=1000001）
     search_code = request.GET.get("search_code", "")
 
-    if search_code:
-        searchret, search_code = JapanPostApiManager.instance().searchcode(search_code)
+    print(f"search_code: {search_code}")
 
-    context = {"searchcode": searchret, "status_code": search_code}
+    if not search_code:
+        context = {"searched_code": "", "status_code": None}
+    else:
+        searched_code, status_code = JapanPostApiManager.instance().searchcode(
+            search_code
+        )
+        context = {"searched_code": searched_code, "status_code": status_code}
 
     return render(request, "jpost/searchcode.html", context)
 
