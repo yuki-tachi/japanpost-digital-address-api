@@ -23,8 +23,9 @@ select {
   box-sizing: border-box;
 }
 pre {
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  /* border: 1px solid #ccc; */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
   padding: 1em;
   background: #ffffff;
 }

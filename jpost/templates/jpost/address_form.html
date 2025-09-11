@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>郵便番号・デジタルアドレス for Biz</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
     <form method="post">
@@ -28,8 +27,8 @@
       <label>
         <span>郵便番号・デジタルアドレス</span>
         <input
-          hx-get="/searchcode"
-          hx-trigger="input changed delay:500ms"
+          hx-get="/searchcode/"
+          hx-trigger="input changed"
           hx-target="#content"
           placeholder="例: 1000001, QN6GQX1, A7E2FK2"
           type="text"
