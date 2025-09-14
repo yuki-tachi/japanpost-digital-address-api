@@ -1,13 +1,8 @@
 from typing import Optional, List
 from django.conf import settings
 import json
-
-# from jpost.common.japanpost_token_client import JapanPostAddressResponse
-# from jpost.schemas.address import address
 import requests
 from jpost.common.japanpost_token_client import JapanPostTokenClient
-
-# from jpost.common.japanpost_api_manager import JapanPostApiClient
 
 
 class JapanPostApiManager:
