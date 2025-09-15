@@ -1,2 +1,5 @@
 # japanpost-digital-address-api
-日本郵政のデジタルアドレスAPIを用いたサンプル
+
+日本郵政のデジタルアドレス API を用いたサンプル
+
+![デモ画面](static/output.gif)
